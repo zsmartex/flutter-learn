@@ -3,6 +3,8 @@ import 'package:app/views/home.dart';
 import 'package:app/views/markets.dart';
 import 'package:app/views/trade.dart';
 import 'package:app/views/wallet.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,21 +14,21 @@ class HomeScreen extends StatelessWidget {
     return CupertinoPageScaffold(
       child: CupertinoTabScaffold(
         tabBar: CupertinoTabBar(
-          items: const <BottomNavigationBarItem>[
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.star_fill),
+              icon: SvgPicture.asset("assets/icons/home.svg"),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.clock_solid),
+              icon: SvgPicture.asset("assets/icons/chart-line-up.svg"),
               label: 'Markets',
             ),
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.person_alt_circle_fill),
+              icon: SvgPicture.asset("assets/icons/arrows-repeat.svg"),
               label: 'Trade',
             ),
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.circle_grid_3x3_fill),
+              icon: SvgPicture.asset("assets/icons/wallet.svg"),
               label: 'Wallet',
             ),
           ],

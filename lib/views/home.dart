@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:app/screens/market.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,36 +8,21 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      child: CupertinoPageScaffold(
-        navigationBar: const CupertinoNavigationBar(
-          middle: Text('HOME'),
-        ),
-        child: Center(
-          child: CupertinoButton(
-            child: const Text('bam vao day de xem phim heo'),
-            onPressed: () {
-              Navigator.of(context, rootNavigator: true).push(
-                PageRouteBuilder(
-                  pageBuilder: (_, __, ___) => const MarketScreen(),
-                  transitionDuration: const Duration(milliseconds: 200),
-                  transitionsBuilder: (_, a, __, c) => SlideTransition(
-                    position: Tween(
-                        begin: Offset(1.0, 0.0),
-                        end: Offset(0.0, 0.0))
-                    .animate(a),
-                    child: c,
-                  ),
-                )
-              );
+      navigationBar: const CupertinoNavigationBar(
+        middle: Text('Home page'),
+      ),
+      child: Column(
+        children: [
+          new Swiper(
+            itemBuilder: (BuildContext context,int index){
+              return new Image.network("https://demo.zsmartex.com/api/v2/kouda/public/banners/e1aca21e-6ea6-4b94-9d91-37dae7c39e4a",fit: BoxFit.fill,);
             },
-          )
-        ),
-      )
+            itemCount: 3,
+            pagination: new SwiperPagination(),
+            control: new SwiperControl(),
+          ),
+        ],
+      ),
     );
   }
 }
-
-// CupertinoPageRoute<Widget>(
-//                   builder: (BuildContext context) {
-//                 return const MarketScreen();
-//               })

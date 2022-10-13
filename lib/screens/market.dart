@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 
 class MarketScreen extends StatelessWidget {
   const MarketScreen({super.key});
@@ -7,13 +8,15 @@ class MarketScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text('New page'),
+        middle: Text('Market page'),
       ),
-      child: CupertinoButton(
-        child: Text("An vao day de quay lai"),
-        onPressed: () {
-          Navigator.pop(context);
-        },    
+      child: Center(
+        child: CupertinoButton(
+          child: Text('An vao day de quay lai'),
+          onPressed: () {
+            context.pop();
+          },    
+        ),
       ),
     );
   }
